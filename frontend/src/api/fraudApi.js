@@ -1,10 +1,16 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
-export const analyzeTransaction = async (transactionInput, apiKey = 'demo-key-001') => {
+export const analyzeTransaction = async (
+  transactionInput,
+  apiKey = 'demo-key-001'
+) => {
   const response = await fetch(`${API_URL}/v1/analyze`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ transaction_input: transactionInput, api_key: apiKey }),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({ transaction_input: transactionInput }),
   })
 
   if (!response.ok) {
