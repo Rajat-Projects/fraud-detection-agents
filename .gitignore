@@ -7,7 +7,7 @@ frontend/.env
 frontend/.env.local
 frontend/.env.production
 
-# ── Local AI coding context — not for repository ─
+# ── Local development context — not for repository ─
 CLAUDE.md
 
 # ── Python ───────────────────────────────────
