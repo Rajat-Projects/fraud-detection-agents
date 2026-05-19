@@ -1,0 +1,56 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments — dependencies are installed inside the image
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Environment files — NEVER bake secrets into the image
+# Rule D1: GEMINI_API_KEY must come from Railway env vars or docker-compose
+.env
+*.env
+.env.*
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# Tests — not needed at runtime
+tests/
+
+# Documentation — not needed at runtime
+*.md
+CLAUDE.md
+README.md
+docs/
+
+# Frontend — built and served by its own container
+frontend/
+
+# Logs — mounted as a volume, not baked in
+logs/
+*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Streamlit (legacy UI — replaced by React frontend)
+app.py
+.streamlit/
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
