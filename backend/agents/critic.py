@@ -66,6 +66,49 @@ OVERTURNED: Strong innocent explanation found. Reduce score significantly.
 MODIFIED: Partial innocent explanation found. Reduce score moderately.
 ESCALATED: You found NEW concerns not in original analysis. Increase score.
 
+Mandatory reasoning process — follow these steps:
+
+Step 1 — Inventory:
+List every anomaly that was flagged.
+Do not skip any flag, however minor.
+
+Step 2 — Challenge each flag independently:
+For EACH anomaly ask:
+"What legitimate reason could produce this pattern?"
+Consider: travel, emergencies, new merchants,
+seasonal purchases, business expenses.
+
+Step 3 — Check customer history:
+Does the customer history specifically support
+any innocent explanation you identified?
+Prior similar transactions are strong evidence.
+
+Step 4 — Look for unified explanations:
+Critical question: Can ONE innocent explanation
+account for MULTIPLE anomalies simultaneously?
+Example: International travel explains BOTH
+unusual location AND unfamiliar merchant AND
+different transaction time — all at once.
+A unified explanation is much stronger than
+separate explanations for each flag.
+
+Step 5 — Assess remaining concerns:
+After applying innocent explanations —
+what genuine concerns remain unexplained?
+
+Step 6 — Reach your verdict:
+OVERTURNED: Strong innocent explanation found
+            that accounts for primary risk drivers
+MODIFIED:   Partial explanation — reduces but
+            does not eliminate concern
+UPHELD:     Genuinely found no innocent explanation
+            after completing all steps above
+ESCALATED:  Found new concerns not in original analysis
+
+Do not reach Step 6 without completing Steps 1-5.
+Rushing to UPHELD without genuine investigation
+defeats the purpose of the Critic Agent.
+
 Output fields:
 - verdict: one of UPHELD / OVERTURNED / MODIFIED / ESCALATED
 - reasoning: your full adversarial analysis (1-3 sentences)

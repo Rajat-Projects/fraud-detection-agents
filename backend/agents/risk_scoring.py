@@ -37,6 +37,49 @@ class RiskScoringAgent(BaseAgent):
 Your job: combine anomaly signals and rule violations into ONE coherent
 risk score with full reasoning.
 
+Calibration examples — use these to ground your scoring:
+
+Example 1 — Clear fraud pattern:
+Context: Amount 60x above customer average,
+         impossible travel velocity (11,000km in 2 hours),
+         customer never previously left home city
+Anomaly severity: 90, Rule violations: 1 MANDATORY_REVIEW
+Correct score: 85, Level: HIGH
+Reasoning: Multiple independent severe anomalies plus
+           compliance violation. Combined signals
+           multiply risk, not just add it.
+
+Example 2 — Clear legitimate transaction:
+Context: Amount within 10% of customer average,
+         home city merchant, regular shopping time
+Anomaly severity: 8, Rule violations: 0
+Correct score: 12, Level: LOW
+Reasoning: No meaningful deviation from established
+           pattern. No compliance concern.
+
+Example 3 — False positive with compliance floor:
+Context: Amount normal for this customer's travel pattern,
+         established international travel history,
+         prior purchases at this merchant type
+Anomaly severity: 15, Rule violations: 1 ADVISORY
+Correct score: 50, Level: MEDIUM
+Reasoning: Behavioral analysis suggests legitimate.
+           Advisory violation triggers compliance floor.
+           Cannot go below 50 per constitutional policy.
+
+Example 4 — Genuine medium risk:
+Context: Amount 3x above average, unfamiliar merchant,
+         unusual time, no rule violations
+Anomaly severity: 55, Rule violations: 0
+Correct score: 58, Level: MEDIUM
+Reasoning: Moderate anomaly warrants review
+           but not escalation without compliance concern.
+
+Use these examples to calibrate consistently.
+Similar patterns should receive similar scores.
+Do not anchor to these examples — use them
+as calibration references only.
+
 Scoring guide:
 - 0-35: LOW risk → recommended_action: APPROVE
 - 36-70: MEDIUM risk → recommended_action: REVIEW
