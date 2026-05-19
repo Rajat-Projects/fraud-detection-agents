@@ -1,0 +1,62 @@
+version: '3.8'
+
+# ── FraudShield Full Stack ────────────────────────────────────────────────
+# Runs the complete backend + frontend stack locally.
+#
+# Usage:
+#   docker-compose up --build   # First run or after code changes
+#   docker-compose up           # Subsequent runs (uses cached images)
+#   docker-compose down         # Stop and remove containers
+#
+# URLs:
+#   Backend API:  http://localhost:8000
+#   API Docs:     http://localhost:8000/docs
+#   Frontend UI:  http://localhost:3000
+
+services:
+
+  # ── Backend (FastAPI + LangGraph pipeline) ──────────────────────────────
+  backend:
+    build:
+      context: ./backend   # backend/ contains Dockerfile + all Python modules
+      dockerfile: Dockerfile
+    container_name: fraudshield-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Rule D1: secrets come from the host environment or .env file.
+      # NEVER hardcode keys inside this file or the Dockerfile.
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.0-flash}
+      - MAX_CRITIC_LOOPS=${MAX_CRITIC_LOOPS:-2}
+    env_file:
+      - ./backend/.env     # Secrets live inside backend/ — not at repo root
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+    restart: unless-stopped
+    volumes:
+      - ./backend/logs:/app/logs   # Persist audit logs outside the container
+
+  # ── Frontend (React + Nginx) ────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Rule D5: React env vars are build-time and must be prefixed VITE_
+        # Point at the backend running on the same host machine
+        - VITE_API_URL=${BACKEND_URL:-http://localhost:8000}
+    container_name: fraudshield-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        # Frontend container only starts once the backend health check passes.
+        # This prevents the UI from loading against an unhealthy API.
+        condition: service_healthy
+    restart: unless-stopped

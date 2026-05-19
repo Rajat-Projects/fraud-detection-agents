@@ -1,0 +1,58 @@
+# ── Secrets — NEVER commit ──────────────────
+.env
+.env.*
+*.env
+backend/.env
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# ── Local AI coding context — not for repository ─
+CLAUDE.md
+
+# ── Python ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg
+
+# ── Node ─────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+.npm/
+
+# ── Logs ─────────────────────────────────────
+logs/
+*.log
+*.jsonl
+backend/logs/
+!backend/logs/.gitkeep
+
+# ── IDE ──────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Docker ───────────────────────────────────
+*.tar
+
+# ── Testing ──────────────────────────────────
+.pytest_cache/
+coverage.xml
+.coverage
