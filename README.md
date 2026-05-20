@@ -20,10 +20,10 @@
 
 | Resource | Link |
 |---|---|
-| 🖥️ **Frontend Demo** | https://fraudshield.vercel.app |
-| 📖 **API Documentation** | https://fraudshield-api.railway.app/docs |
-| 💚 **Health Check** | https://fraudshield-api.railway.app/v1/health |
-| 📦 **GitHub** | https://github.com/rajatpednekar/fraud-detection-agents |
+| 🖥️ **Frontend Demo** | https://majestic-travesseiro-0d8d70.netlify.app |
+| 📖 **API Documentation** | https://rare-spirit-production-efc1.up.railway.app/docs |
+| 💚 **Health Check** | https://rare-spirit-production-efc1.up.railway.app/v1/health |
+| 📊 **Metrics** | https://rare-spirit-production-efc1.up.railway.app/v1/metrics |
 
 > ⏱️ Allow 8-10 seconds per analysis (5 live LLM calls).
 > First request may take up to 30 seconds if the backend is waking from idle.
