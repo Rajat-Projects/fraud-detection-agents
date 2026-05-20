@@ -9,6 +9,8 @@ frontend/.env.production
 
 # ── Local development context — not for repository ─
 CLAUDE.md
+app.py
+frontend/vercel.json
 
 # ── Python ───────────────────────────────────
 __pycache__/
