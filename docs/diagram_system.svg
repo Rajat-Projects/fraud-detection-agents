@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" style="font-family:'Segoe UI',Roboto,Arial,sans-serif;">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#4ade80"/>
+    </marker>
+    <marker id="aa" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="620" fill="#0a0e1a"/>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--  COLUMN TITLES                                          -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <text x="150" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#f1f5f9">4-Layer Security</text>
+  <text x="490" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#f1f5f9">7-Agent Pipeline</text>
+  <text x="840" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#f1f5f9">Deployment Stack</text>
+
+  <!-- Column separators -->
+  <line x1="340" y1="35" x2="340" y2="575" stroke="#1f2937" stroke-width="1"/>
+  <line x1="680" y1="35" x2="680" y2="575" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--  LEFT COLUMN — SECURITY LAYERS                          -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <!-- Layer 1: Boundary (green) -->
+  <rect x="20" y="40" width="300" height="110" rx="8" fill="#071a0f" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="30" y="58" font-size="10" font-weight="700" fill="#4ade80">LAYER 1 — BOUNDARY</text>
+  <text x="30" y="76" font-size="10" fill="#94a3b8">Rate Limiting</text>
+  <text x="30" y="92" font-size="10" fill="#94a3b8">Injection Detection (3 independent checks)</text>
+  <text x="30" y="108" font-size="10" fill="#94a3b8">PII Tokenization — Regex-based, zero deps</text>
+  <text x="30" y="124" font-size="10" fill="#94a3b8">Input length cap: 4096 characters</text>
+  <text x="30" y="140" font-size="9" fill="#4ade8088">Injection halts pipeline in &lt; 100ms</text>
+
+  <!-- Layer 2: Pipeline (blue) -->
+  <rect x="20" y="162" width="300" height="110" rx="8" fill="#060d1a" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="30" y="180" font-size="10" font-weight="700" fill="#60a5fa">LAYER 2 — PIPELINE</text>
+  <text x="30" y="198" font-size="10" fill="#94a3b8">Guardrail Agent (NO LLM)</text>
+  <text x="30" y="214" font-size="10" fill="#94a3b8">Pre + Post check at every agent boundary</text>
+  <text x="30" y="230" font-size="10" fill="#94a3b8">Scope creep detection (write restriction)</text>
+  <text x="30" y="246" font-size="10" fill="#94a3b8">Ground truth consistency anchoring</text>
+  <text x="30" y="262" font-size="9" fill="#60a5fa88">PII output scan — CRITICAL if found</text>
+
+  <!-- Layer 3: Decision (purple) -->
+  <rect x="20" y="284" width="300" height="110" rx="8" fill="#0a0814" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="30" y="302" font-size="10" font-weight="700" fill="#a78bfa">LAYER 3 — DECISION</text>
+  <text x="30" y="320" font-size="10" fill="#94a3b8">Constitutional policies enforced in Python</text>
+  <text x="30" y="336" font-size="10" fill="#94a3b8">MINIMUM_SCORE_WITH_RULE_VIOLATION = 50</text>
+  <text x="30" y="352" font-size="10" fill="#94a3b8">recommended_action: APPROVE | REVIEW</text>
+  <text x="30" y="368" font-size="10" fill="#94a3b8">No autonomous block — human always decides</text>
+  <text x="30" y="384" font-size="9" fill="#a78bfa88">BLOCK does not exist in any schema</text>
+
+  <!-- Layer 4: Infrastructure (gray) -->
+  <rect x="20" y="406" width="300" height="110" rx="8" fill="#0d1117" stroke="#475569" stroke-width="1.5"/>
+  <text x="30" y="424" font-size="10" font-weight="700" fill="#94a3b8">LAYER 4 — INFRASTRUCTURE</text>
+  <text x="30" y="442" font-size="10" fill="#94a3b8">SHA-256 state checkpoints per agent</text>
+  <text x="30" y="458" font-size="10" fill="#94a3b8">token_map deleted via result.pop() before response</text>
+  <text x="30" y="474" font-size="10" fill="#94a3b8">GEMINI_API_KEY in env vars — never in image</text>
+  <text x="30" y="490" font-size="10" fill="#94a3b8">PII-aware logging — metadata only</text>
+  <text x="30" y="506" font-size="9" fill="#47556988">SHA-256 audit trail — tamper-evident</text>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--  MIDDLE COLUMN — AGENT PIPELINE (compact)               -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <!-- Agent boxes: x=360, width=280 -->
+
+  <!-- Agent 1: Transaction Analyzer -->
+  <rect x="360" y="40" width="280" height="46" rx="7" fill="#111827" stroke="#6366f1" stroke-width="1"/>
+  <rect x="360" y="40" width="4" height="46" rx="2" fill="#6366f1"/>
+  <text x="375" y="59" font-size="11" font-weight="700" fill="#f1f5f9">Transaction Analyzer</text>
+  <text x="375" y="75" font-size="9" fill="#94a3b8">Structures raw input · LLM extraction</text>
+  <rect x="606" y="52" width="28" height="16" rx="3" fill="#6366f120" stroke="#6366f1" stroke-width="0.8"/>
+  <text x="620" y="63" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">LLM</text>
+
+  <line x1="500" y1="86" x2="500" y2="96" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Agent 2: Anomaly Detection -->
+  <rect x="360" y="98" width="280" height="46" rx="7" fill="#111827" stroke="#6366f1" stroke-width="1"/>
+  <rect x="360" y="98" width="4" height="46" rx="2" fill="#6366f1"/>
+  <text x="375" y="117" font-size="11" font-weight="700" fill="#f1f5f9">Anomaly Detection</text>
+  <text x="375" y="133" font-size="9" fill="#94a3b8">Behavioral patterns · Context-constrained</text>
+  <rect x="606" y="110" width="28" height="16" rx="3" fill="#6366f120" stroke="#6366f1" stroke-width="0.8"/>
+  <text x="620" y="121" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">LLM</text>
+
+  <line x1="500" y1="144" x2="500" y2="154" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Agent 3: Rule Enforcement (amber, NO LLM) -->
+  <rect x="360" y="156" width="280" height="46" rx="7" fill="#111827" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="360" y="156" width="4" height="46" rx="2" fill="#f59e0b"/>
+  <text x="375" y="175" font-size="11" font-weight="700" fill="#f1f5f9">Rule Enforcement</text>
+  <text x="375" y="191" font-size="9" fill="#94a3b8">Deterministic compliance · Pure Python</text>
+  <rect x="592" y="168" width="42" height="16" rx="3" fill="#f59e0b20" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="613" y="179" text-anchor="middle" font-size="8" font-weight="700" fill="#f59e0b">NO LLM</text>
+
+  <line x1="500" y1="202" x2="500" y2="212" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Agent 4: Risk Scoring -->
+  <rect x="360" y="214" width="280" height="46" rx="7" fill="#111827" stroke="#6366f1" stroke-width="1"/>
+  <rect x="360" y="214" width="4" height="46" rx="2" fill="#6366f1"/>
+  <text x="375" y="233" font-size="11" font-weight="700" fill="#f1f5f9">Risk Scoring</text>
+  <text x="375" y="249" font-size="9" fill="#94a3b8">Multi-signal synthesis · Few-shot calibration</text>
+  <rect x="606" y="226" width="28" height="16" rx="3" fill="#6366f120" stroke="#6366f1" stroke-width="0.8"/>
+  <text x="620" y="237" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">LLM</text>
+
+  <line x1="500" y1="260" x2="500" y2="270" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Agent 5: Critic (taller, prominent) -->
+  <rect x="357" y="268" width="286" height="62" rx="7" fill="#111827" stroke="#6366f1" stroke-width="1.8"/>
+  <rect x="360" y="271" width="4" height="56" rx="2" fill="#6366f1"/>
+  <text x="375" y="291" font-size="12" font-weight="700" fill="#f1f5f9">Critic Agent</text>
+  <rect x="461" y="281" width="64" height="14" rx="2" fill="#6366f125" stroke="#6366f1" stroke-width="0.6"/>
+  <text x="493" y="291" text-anchor="middle" font-size="7.5" font-weight="700" fill="#a78bfa">SHOWSTOPPER</text>
+  <text x="375" y="307" font-size="9" fill="#94a3b8">Defense attorney framing · 6-step CoT</text>
+  <text x="375" y="321" font-size="9" fill="#94a3b8">Adversarial verdict challenge · Max 2 loops</text>
+  <rect x="606" y="282" width="28" height="16" rx="3" fill="#6366f120" stroke="#6366f1" stroke-width="0.8"/>
+  <text x="620" y="293" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">LLM</text>
+
+  <!-- Critic loop arrow (right side of middle col) -->
+  <path d="M 643,299 C 668,299 668,237 643,237" stroke="#f59e0b" stroke-width="1.8" fill="none" stroke-dasharray="5,3" marker-end="url(#aa)"/>
+  <text x="672" y="266" text-anchor="start" font-size="8" fill="#f59e0b">OVERTURNED</text>
+  <text x="672" y="276" text-anchor="start" font-size="8" fill="#94a3b8">max 2 loops</text>
+
+  <line x1="500" y1="330" x2="500" y2="340" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Agent 6: Report Generator -->
+  <rect x="360" y="342" width="280" height="46" rx="7" fill="#111827" stroke="#6366f1" stroke-width="1"/>
+  <rect x="360" y="342" width="4" height="46" rx="2" fill="#6366f1"/>
+  <text x="375" y="361" font-size="11" font-weight="700" fill="#f1f5f9">Report Generator</text>
+  <text x="375" y="377" font-size="9" fill="#94a3b8">60-second analyst report · PII masked</text>
+  <rect x="606" y="354" width="28" height="16" rx="3" fill="#6366f120" stroke="#6366f1" stroke-width="0.8"/>
+  <text x="620" y="365" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">LLM</text>
+
+  <line x1="500" y1="388" x2="500" y2="398" stroke="#4ade80" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- Human Analyst -->
+  <rect x="360" y="400" width="280" height="46" rx="7" fill="#071a0f" stroke="#4ade80" stroke-width="1.8"/>
+  <text x="500" y="419" text-anchor="middle" font-size="12" font-weight="700" fill="#4ade80">Human Analyst Decision</text>
+  <text x="500" y="435" text-anchor="middle" font-size="9" fill="#94a3b8">System recommends. Human decides. Always.</text>
+
+  <!-- Guardrail note (Agent 7) -->
+  <rect x="360" y="458" width="280" height="38" rx="6" fill="#071a0f" stroke="#4ade80" stroke-width="1" opacity="0.7"/>
+  <text x="500" y="474" text-anchor="middle" font-size="10" font-weight="700" fill="#4ade80">Guardrail Agent — NO LLM</text>
+  <text x="500" y="488" text-anchor="middle" font-size="9" fill="#94a3b8">Cross-cutting · Pre + Post every boundary</text>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--  RIGHT COLUMN — DEPLOYMENT STACK                        -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <!-- Frontend -->
+  <rect x="700" y="40" width="280" height="80" rx="8" fill="#0d1117" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="840" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#60a5fa">React + Vite + TailwindCSS</text>
+  <text x="840" y="82" text-anchor="middle" font-size="10" fill="#94a3b8">Dark enterprise dashboard</text>
+  <text x="840" y="98" text-anchor="middle" font-size="10" fill="#94a3b8">Netlify CDN · 8 components</text>
+  <!-- Badge -->
+  <rect x="700" y="40" width="280" height="18" rx="8" fill="#60a5fa15"/>
+  <text x="840" y="52" text-anchor="middle" font-size="8" font-weight="700" fill="#60a5fa">FRONTEND</text>
+
+  <!-- Arrow down with label -->
+  <line x1="840" y1="120" x2="840" y2="143" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#ab)"/>
+  <text x="852" y="136" font-size="8" fill="#60a5fa">HTTPS · REST /v1/</text>
+
+  <!-- FastAPI Backend -->
+  <rect x="700" y="145" width="280" height="100" rx="8" fill="#0d1117" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="700" y="145" width="280" height="18" rx="8" fill="#6366f115"/>
+  <text x="840" y="157" text-anchor="middle" font-size="8" font-weight="700" fill="#6366f1">BACKEND · RAILWAY</text>
+  <text x="840" y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9">FastAPI + Uvicorn</text>
+  <text x="840" y="196" text-anchor="middle" font-size="9" fill="#94a3b8">/v1/analyze · /v1/health · /v1/metrics</text>
+  <text x="840" y="212" text-anchor="middle" font-size="9" fill="#94a3b8">Auth header · Rate limit · Security headers</text>
+  <text x="840" y="228" text-anchor="middle" font-size="9" fill="#94a3b8">Global error handler · Swagger /docs</text>
+
+  <!-- Arrow -->
+  <line x1="840" y1="245" x2="840" y2="268" stroke="#6366f1" stroke-width="1.5" marker-end="url(#ab)"/>
+  <text x="852" y="261" font-size="8" fill="#6366f1">LangGraph pipeline</text>
+
+  <!-- LangGraph StateGraph -->
+  <rect x="700" y="270" width="280" height="85" rx="8" fill="#0d1117" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="700" y="270" width="280" height="18" rx="8" fill="#8b5cf615"/>
+  <text x="840" y="282" text-anchor="middle" font-size="8" font-weight="700" fill="#8b5cf6">AGENT FRAMEWORK</text>
+  <text x="840" y="303" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9">LangGraph StateGraph</text>
+  <text x="840" y="321" text-anchor="middle" font-size="9" fill="#94a3b8">7 specialized agents · TypedDict state</text>
+  <text x="840" y="337" text-anchor="middle" font-size="9" fill="#94a3b8">Constitutional policies enforced in Python</text>
+  <text x="840" y="345" text-anchor="middle" font-size="9" fill="#94a3b8">SHA-256 checkpoints per agent</text>
+
+  <!-- Arrow -->
+  <line x1="840" y1="355" x2="840" y2="378" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#aa)"/>
+  <text x="852" y="371" font-size="8" fill="#f59e0b">5 LLM calls per run</text>
+
+  <!-- Gemini -->
+  <rect x="700" y="380" width="280" height="85" rx="8" fill="#0d1117" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="700" y="380" width="280" height="18" rx="8" fill="#f59e0b15"/>
+  <text x="840" y="392" text-anchor="middle" font-size="8" font-weight="700" fill="#f59e0b">LLM PROVIDER</text>
+  <text x="840" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9">Google Gemini 2.5 Flash</text>
+  <text x="840" y="430" text-anchor="middle" font-size="9" fill="#94a3b8">Temperature: 0.1 · Structured outputs</text>
+  <text x="840" y="447" text-anchor="middle" font-size="9" fill="#94a3b8">Pydantic extra=forbid on every schema</text>
+  <text x="840" y="455" text-anchor="middle" font-size="9" fill="#f59e0b88">GEMINI_API_KEY in Railway env vars</text>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--  FOOTER                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <line x1="20" y1="530" x2="980" y2="530" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Legend row -->
+  <rect x="20" y="543" width="12" height="12" rx="2" fill="#6366f1"/>
+  <text x="38" y="554" font-size="10" fill="#94a3b8">LLM Agent</text>
+  <rect x="130" y="543" width="12" height="12" rx="2" fill="#f59e0b"/>
+  <text x="148" y="554" font-size="10" fill="#94a3b8">NO LLM (Deterministic)</text>
+  <rect x="300" y="543" width="12" height="12" rx="2" fill="#4ade80"/>
+  <text x="318" y="554" font-size="10" fill="#94a3b8">Security Layer</text>
+  <rect x="430" y="543" width="12" height="12" rx="2" fill="#60a5fa"/>
+  <text x="448" y="554" font-size="10" fill="#94a3b8">Deployment</text>
+
+  <!-- Stats row -->
+  <text x="980" y="554" text-anchor="end" font-size="10" fill="#64748b">66 tests · Docker containerized · MIT License · Wipro WEGA FDE 2026</text>
+
+  <!-- Footer line 2 -->
+  <text x="500" y="592" text-anchor="middle" font-size="9" fill="#374151">FraudShield · Constitutional policies in Python, not prompts · Human-in-the-loop · No autonomous actions</text>
+
+  <!-- Agent authority note -->
+  <text x="20" y="610" font-size="9" fill="#374151">Authority: Constitutional Policies > Rule Enforcement > Guardrail > LLM Agents > Human Analyst (final decision)</text>
+</svg>

@@ -32,6 +32,14 @@
 
 ## 🏗️ Architecture
 
+## Architecture Diagrams
+
+### Pipeline Architecture
+![Pipeline](docs/diagram_pipeline.svg)
+
+### System Architecture
+![System](docs/diagram_system.svg)
+
 Seven specialized agents in a LangGraph StateGraph pipeline:
 
 ```
