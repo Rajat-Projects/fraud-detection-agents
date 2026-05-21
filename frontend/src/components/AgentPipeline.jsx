@@ -193,39 +193,6 @@ function RiskScoring({ result }) {
   )
 }
 
-/* ── Agent 6: Execution summary ──────────────────────────────────────────── */
-function ExecutionSummary({ agentStatuses }) {
-  if (!agentStatuses || Object.keys(agentStatuses).length === 0) return null
-
-  const statusColor = { SUCCESS: '#4ade80', FALLBACK: '#facc15', FAILED: '#f87171' }
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-      <div style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>
-        Agent Execution Summary
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.4rem' }}>
-        {Object.entries(agentStatuses).map(([agent, status]) => (
-          <div key={agent} style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            background: 'rgba(0,0,0,0.2)', borderRadius: 6, padding: '0.4rem 0.75rem',
-          }}>
-            <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{agent.replace(/_/g, ' ')}</span>
-            <span style={{
-              fontSize: '0.68rem', fontWeight: 700, padding: '0.1rem 0.4rem', borderRadius: 4,
-              background: `${statusColor[status] || '#6366f1'}22`,
-              border: `1px solid ${statusColor[status] || '#6366f1'}44`,
-              color: statusColor[status] || '#94a3b8',
-            }}>
-              {status}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 /* ── Main ────────────────────────────────────────────────────────────────── */
 export default function AgentPipeline({ result }) {
   const tx      = result.structured_transaction || {}
@@ -275,14 +242,6 @@ export default function AgentPipeline({ result }) {
         <RiskScoring result={result} />
       </AgentCard>
 
-      <AgentCard
-        title="Agent 6 — Report Generator"
-        icon="📋"
-        subtitle="60-Second Analyst Summary"
-        isAvailable={!!result.agent_statuses}
-      >
-        <ExecutionSummary agentStatuses={result.agent_statuses} />
-      </AgentCard>
     </div>
   )
 }
