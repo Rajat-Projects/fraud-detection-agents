@@ -17,7 +17,7 @@ const EXAMPLES = {
     label: '🔄 False Positive — Traveler',
     color: 'rgba(250,204,21,0.1)',
     border: 'rgba(250,204,21,0.25)',
-    text: 'Transaction: 3200 dollars jewelry purchase Paris France 11am. Customer history: annual Paris trip every June 4 years, 3 prior jewelry purchases in Paris, frequent international traveler, account good standing 6 years.',
+    text: 'Transaction: $3,200 USD jewelry store purchase.\nLocation: Paris, France. Time: 11:00 AM local.\nCard present: No (online/CNP).\nMerchant: Luxury Jewelers Paris.\n\nCustomer History:\n- Account age: 6 years, good standing\n- Annual Paris trip every June for 4 years\n- 3 prior jewelry purchases in Paris same merchant\n- Average transaction: $450\n- Home city: New York, USA\n- Last transaction: New York, 2 hours ago\n- Frequent international traveler',
   },
 }
 
